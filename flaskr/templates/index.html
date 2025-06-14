@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<!--
+To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+Copyright (c) 2025, Tiago Joseph (Ghent University), Michaël Stappers (independent programmer), and Gent University. 
+SMIQQDA is protected by the GNU General Public License LICENCE [version 3 or any later version]. 
+The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
+Contact : tiago.joseph@hotmail.com / tiago.joseph@ugent.be
+-->
+<head>
+  <title>Picky</title>
+  <meta name="author" content="Mic">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css" />
+  <script src="static/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="filter" class="border text-padding">
+      <label for="choice-account">Account :</label>
+      <select id="choice-account">
+      </select>
+      <input type="button" onclick="accountChoices();" value="Go" />
+      <label for="choice-post-filter">Filter post :</label>
+      <select id="choice-post-filter" multiple>
+      </select>
+      <label for="choice-account-filter">Filter account :</label>
+      <select id="choice-account-filter" multiple>
+      </select>
+      <input type="button" onclick="filterChoices();" value="Filter" />
+    </div>
+    <div id="date" class="border text-padding">
+      <div class="button-previous-next center" onclick="previousDay()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-left"></div>
+        </div>
+      </div>
+      <div id="date-information">
+        Date : <b id="date-information-date"></b>
+        <input id="date-information-input" type="date" />
+        <input type="button" onclick="submitDate()" value="Go" />
+      </div>
+      <div class="button-previous-next center" onclick="nextDay()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="account" class="border text-padding">
+      <div class="button-previous-next center" onclick="previousAccount()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-left"></div>
+        </div>
+      </div>
+      <div id="account-information">
+        Account : <a href="" id="account-username-url" target="_blank" rel="noopener noreferrer"><b id="account-username"></b></a> (<span id="account-fullname"></span>) <span id="account-current-index"></span>/<span id="account-total-index"></span> filtered accounts with <span id="post-total-index-filter"></span> posts (total of accounts: <span id="account-total-index-no-filter"></span>; total of posts: <span id="post-total-index-no-filter"></span>)<br />
+        Post : <span id="post-current-index"></span>/<span id="post-total-index"></span> filtered posts → <input id="post-select-number-input" type="number" min="1" max="999"/><input type="button" onclick="submitPostNumber()" value="Go" /><br />
+        Number of images : <span id="post-image-current-index"></span>/<span id="post-image-total-index"></span> (<span id="post-type"></span>)<br />
+        Posts : <span id="account-posts-count"></span><br />
+        Posts actually collected : <span id="account-posts-actually-count"></span><br />
+        Posts missing : <span id="account-posts-missing-count"></span><br />
+        Followers : <span id="account-followers-count"></span><br />
+        Follows : <span id="account-follows-count"></span>
+      </div>
+      <div class="button-previous-next center" onclick="nextAccount()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-right"></div>
+        </div>
+      </div>
+    </div>
+    <div id="post" class="border">
+      <div class="button-previous-next center" onclick="previousPost()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-left"></div>
+        </div>
+      </div>
+      <div id="post-content" class="border">
+        <div id="post-image-previous" class="float-button-previous center" onclick="previousImage()">
+          <div class="common-button-previous-next center">
+            <div class="arrow arrow-left"></div>
+          </div>
+        </div>
+        <img id="post-image" />
+        <div id="post-image-next" class="float-button-next center" onclick="nextImage()">
+          <div class="common-button-previous-next center">
+            <div class="arrow arrow-right"></div>
+          </div>
+        </div>
+      </div>
+      <div class="button-previous-next center" onclick="nextPost()">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-right"></div>
+        </div>
+      </div>
+      <div id="post-information" class="border text-padding">
+        <b>Date</b> : <span id="post-date"></span><br />
+        <b>Localisation</b> : <span id="post-localisation"></span><br />
+        <b><a href="" id="post-url" target="_blank" rel="noopener noreferrer">Link to the post</a></b><br />
+        <span id="post-nbr-like"></span>👍<br />
+        <span id="post-nbr-comment"></span>🖊️<br />
+        <b>Legend</b> : <span id="post-caption"></span>
+      </div>
+    </div>
+    <div id="category" class="border">
+      <div id="category-content" class="text-padding">
+        Categories list
+      </div>
+    </div>
+    <div id="free-text" class="border text-padding">
+      Free annotation :
+      <textarea id="free-textarea">
+      </textarea>
+    </div>
+  </div>
+  <input type="button" onclick="saveEditor();" value="Save" />
+  <input type="button" onclick="switchDateMode();" value="Switch date mode" />
+  <ul>
+    <li><a href="/">Post</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/edit_category_account">Edit category for accounts</a></li>
+    <li><a href="/edit_category_post">Edit category for posts</a></li>
+    <li><a href="/export_post">Export post</a></li>
+    <li><a href="/export_account">Export account</a></li>
+  </ul>
+</body>
+<!-- The script is at the end of the page because it needs the complete load of the page to work 
+  (the div with the id free-text must exist before this script)
+-->
+<script>
+  var categoryType = "post";
+
+  async function saveEditor() {
+
+    try {
+      console.log(postId, accountId);
+      const response = await axios.post('/api/free_annotations/create', {
+        post_id: postId,
+        free_text: document.getElementById("free-textarea").value
+      });
+      console.log("Free annotation saved");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  window.onload = function () { openDirectory(categoryType); };
+  document.getElementById("free-textarea").addEventListener("blur", saveEditor);
+  setInterval(saveEditor,300000);
+</script>
+
+<script>
+  const choicePostFilter = new Choices('#choice-post-filter', {
+    removeItemButton: true,
+    duplicateItemsAllowed: false,
+    paste: false,
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    noChoicesText: 'No choices to choose from',
+    itemSelectText: 'Press to select',
+    uniqueItemText: 'Only unique values can be added',
+    customAddItemText: 'Only values matching specific conditions can be added'
+  });
+  
+  const choiceAccountFilter = new Choices('#choice-account-filter', {
+    removeItemButton: true,
+    duplicateItemsAllowed: false,
+    paste: false,
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    noChoicesText: 'No choices to choose from',
+    itemSelectText: 'Press to select',
+    uniqueItemText: 'Only unique values can be added',
+    customAddItemText: 'Only values matching specific conditions can be added'
+  });
+
+  const choiceAccount = new Choices('#choice-account', {
+    removeItemButton: true,
+    duplicateItemsAllowed: false,
+    paste: false,
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    noChoicesText: 'No choices to choose from',
+    itemSelectText: 'Press to select',
+    uniqueItemText: 'Only unique values can be added',
+    customAddItemText: 'Only values matching specific conditions can be added',
+    shouldSort: false
+  });
+</script>
+<script>
+  document.addEventListener("keydown", function (event) {
+
+    let forms_id = ["date-information-input", "free-textarea","post-select-number-input"];
+
+    if (!forms_id.includes(document.activeElement.id) && document.activeElement.className !== "choices__input choices__input--cloned") {
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          previousImage();
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          nextImage();
+          break;
+        case "ArrowUp":
+          event.preventDefault();
+          previousPost();
+          break;
+        case "ArrowDown":
+          event.preventDefault();
+          nextPost();
+          break;
+        case "1":
+          event.preventDefault();
+          previousAccount();
+          break;
+        case "2":
+          event.preventDefault();
+          nextAccount();
+          break;
+        default:
+          break;
+      }
+    }
+  });
+</script>
+</html>

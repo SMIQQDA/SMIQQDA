@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<!--
+To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+Copyright (c) 2025, Tiago Joseph (Ghent University), Michaël Stappers (independent programmer), and Gent University. 
+SMIQQDA is protected by the GNU General Public License LICENCE [version 3 or any later version]. 
+The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
+Contact : tiago.joseph@hotmail.com / tiago.joseph@ugent.be
+-->
+<head>
+  <title>Picky</title>
+  <meta name="author" content="Mic">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/account.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css" />
+  <script src="static/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@2.0.2/dist/bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="filter" class="border text-padding">
+      <label for="choice-account">Account :</label>
+      <select id="choice-account">
+      </select>
+      <input type="button" onclick="accountChoices(true);" value="Go" />
+      <label for="choice-account-filter">Filter :</label>
+      <select id="choice-account-filter" multiple>
+      </select>
+      <input type="button" onclick="filterChoices(true);" value="Filter" />
+    </div>
+    <div id="account" class="border">
+      <div class="button-previous-next center" onclick="previousAccount(true)">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-left"></div>
+        </div>
+      </div>
+      <div id="account-content" class="border">
+        <img id="account-image" />
+      </div>
+      <div class="button-previous-next center" onclick="nextAccount(true)">
+        <div class="common-button-previous-next center">
+          <div class="arrow arrow-right"></div>
+        </div>
+      </div>
+      <div id="account-information" class="border text-padding">
+        <b>Account</b> : <a href="" id="account-username-url" target="_blank" rel="noopener noreferrer"><b id="account-username"></b></a> (<span id="account-fullname"></span>) <span id="account-current-index"></span>/<span id="account-total-index"></span> (<span id="account-total-index-no-filter"></span>)<br />
+        <b>Biography</b> : <span id="account-biography"></span><br />
+        <b>Url</b> : <span id="account-external-url"></span><br />
+        <b>Posts</b> : <span id="account-posts-count"></span><br />
+        <b>Posts actually collected</b> : <span id="account-posts-actually-count"></span><br />
+        <b>Posts missing</b> : <span id="account-posts-missing-count"></span><br />
+        <b>Followers</b> : <span id="account-followers-count"></span><br />
+        <b>Follows </b>: <span id="account-follows-count"></span>
+      </div>
+    </div>
+    <div id="category" class="border">
+      <div id="category-content" class="text-padding">
+        Categories list
+      </div>
+    </div>
+    <div id="free-text" class="border text-padding">
+      Free annotation :
+      <textarea id="free-textarea">
+      </textarea>
+    </div>
+  </div>
+  <input type="button" onclick="saveEditor();" value="Save" />
+  <ul>
+    <li><a href="/">Post</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/edit_category_account">Edit category for accounts</a></li>
+    <li><a href="/edit_category_post">Edit category for posts</a></li>
+    <li><a href="/export_post">Export post</a></li>
+    <li><a href="/export_account">Export account</a></li>
+  </ul>
+</body>
+<!-- The script is at the end of the page because it needs the complete load of the page to work 
+  (the div with the id free-text must exist before this script)
+-->
+<script>
+  var categoryType = "account";
+
+  async function saveEditor() {
+
+    try {
+      const response = await axios.post('/api/free_account_annotations/create', {
+        account_id: accountId,
+        free_text: document.getElementById("free-textarea").value
+      });
+      console.log("Free annotation saved");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  window.onload = function () { openDirectory(categoryType); }
+  document.getElementById("free-textarea").addEventListener("blur", saveEditor);
+  setInterval(saveEditor, 300000);
+</script>
+
+<script>
+  const choiceAccountFilter = new Choices('#choice-account-filter', {
+    removeItemButton: true,
+    duplicateItemsAllowed: false,
+    paste: false,
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    noChoicesText: 'No choices to choose from',
+    itemSelectText: 'Press to select',
+    uniqueItemText: 'Only unique values can be added',
+    customAddItemText: 'Only values matching specific conditions can be added'
+  });
+
+  const choiceAccount = new Choices('#choice-account', {
+    removeItemButton: true,
+    duplicateItemsAllowed: false,
+    paste: false,
+    loadingText: 'Loading...',
+    noResultsText: 'No results found',
+    noChoicesText: 'No choices to choose from',
+    itemSelectText: 'Press to select',
+    uniqueItemText: 'Only unique values can be added',
+    customAddItemText: 'Only values matching specific conditions can be added',
+    shouldSort: false
+  });
+</script>
+<script>
+  document.addEventListener("keydown", function (event) {
+    
+    if (document.activeElement.id !== "free-textarea" && document.activeElement.className !== "choices__input choices__input--cloned") {
+      if (event.key == "ArrowLeft") {
+        previousAccount(true);
+      } else if (event.key == "ArrowRight") {
+        nextAccount(true);
+      }
+    }
+  });
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<!--
+To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+Copyright (c) 2025, Tiago Joseph (Ghent University), Michaël Stappers (independent programmer), and Gent University. 
+SMIQQDA is protected by the GNU General Public License LICENCE [version 3 or any later version]. 
+The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
+Contact : tiago.joseph@hotmail.com / tiago.joseph@ugent.be
+-->
+<head>
+  <title>Picky : Edit category for accounts</title>
+  <meta name="author" content="Mic">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/edit_category.css">
+  <script src="static/js/main.js"></script>
+  <script src="static/js/edit_category.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li><a href="/">Post</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/edit_category_account">Edit category for accounts</a></li>
+    <li><a href="/edit_category_post">Edit category for posts</a></li>
+    <li><a href="/export_post">Export post</a></li>
+    <li><a href="/export_account">Export account</a></li>
+  </ul>
+  <div id="category">
+  </div>
+  <ul>
+    <li><a href="/">Post</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/edit_category_account">Edit category for accounts</a></li>
+    <li><a href="/edit_category_post">Edit category for posts</a></li>
+    <li><a href="/export_post">Export post</a></li>
+    <li><a href="/export_account">Export account</a></li>
+  </ul>
+</body>
+<script>
+  var categoryType = "account";
+  window.onload = async function () { 
+  let categoriesList = await listCategories(true, categoryType);
+  showEditableCategories(categoriesList, categoryType);
+  }
+</script>
+</html>

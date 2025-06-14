@@ -1,0 +1,37 @@
+/*
+ * To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+ * Copyright (c) 2025, Tiago Joseph (Ghent University), Michaël Stappers (independent programmer), and Gent University. 
+ * SMIQQDA is protected by the GNU General Public License LICENCE [version 3 or any later version]. 
+ * The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
+ * Contact : tiago.joseph@hotmail.com / tiago.joseph@ugent.be
+*/
+
+span {
+  padding: 1rem;
+  border: 1px solid black
+}
+
+.category-span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-category-span {
+  padding-left: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.archive-button, .sub-archive-button  {
+  background-color: goldenrod;
+}
+
+.archived {
+  background-color: greenyellow !important;
+}
+
+.delete-button, .sub-delete-button {
+  background-color: brown;
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<!--
+To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+Copyright (c) 2025, Tiago Joseph (Ghent University), Michaël Stappers (independent programmer), and Gent University. 
+SMIQQDA is protected by the GNU General Public License LICENCE [version 3 or any later version]. 
+The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
+Contact : tiago.joseph@hotmail.com / tiago.joseph@ugent.be
+-->
+<head>
+  <title>Picky : Export account to excel</title>
+  <meta name="author" content="Mic">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="static/css/edit_category.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jQuery-QueryBuilder@2.7.0/dist/css/query-builder.default.min.css">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <!--<script src="static/js/export.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/sql-parser-mistic@1.2.3/browser/sql-parser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jQuery-QueryBuilder@2.7.0/dist/js/query-builder.standalone.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>Export account to excel</h1>
+  <div id="builder-basic"></div>
+  <div class="btn-group">
+    <button id="btn-reset" class="btn btn-warning reset" data-target="basic">Reset</button>
+    <button id="btn-get-sql" class="btn btn-primary parse-sql" data-target="basic" data-stmt="false">SQL</button>
+    <input type="checkbox" id="sub-corpus" name="sub-corpus" style="margin-left: 50px;" />
+    <label for="sub-corpus">Create sub-corpus with images</label>
+  </div>
+  <ul>
+    <li><a href="/">Post</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/edit_category_account">Edit category for accounts</a></li>
+    <li><a href="/edit_category_post">Edit category for posts</a></li>
+    <li><a href="/export_post">Export post</a></li>
+    <li><a href="/export_account">Export account</a></li>
+  </ul>
+</body>
+<script>
+  window.onload = async function () {
+
+    const { category: account_category, label: account_label } = await getCategory('account');
+
+    $('#builder-basic').queryBuilder({
+      plugins: [
+        'bt-tooltip-errors',
+        'not-group'
+      ],
+
+      filters: [{
+        id: 'account',
+        label: 'Username',
+        type: 'string',
+        operators: [
+          'equal', 'not_equal', 'begins_with', 'not_begins_with',
+          'contains', 'not_contains', 'ends_with', 'not_ends_with']
+      }, {
+        id: 'fullName',
+        label: 'Fullname',
+        type: 'string',
+        operators: [
+          'equal', 'not_equal', 'begins_with', 'not_begins_with',
+          'contains', 'not_contains', 'ends_with', 'not_ends_with']
+      }, {
+        id: 'biography',
+        label: 'Biography',
+        type: 'string',
+        operators: [
+          'equal', 'not_equal', 'begins_with', 'not_begins_with',
+          'contains', 'not_contains', 'ends_with', 'not_ends_with']
+      }, {
+        id: 'CAST(postsCount as INTEGER)',
+        label: 'Number of posts',
+        type: 'integer',
+        validation: {
+          min: 0,
+          step: 1
+        }
+      }, {
+        id: 'CAST(postsReallyCollected as INTEGER)',
+        label: 'Number of actually posts',
+        type: 'integer',
+        validation: {
+          min: 0,
+          step: 1
+        }
+      }, {
+        id: 'CAST(postsMissing as INTEGER)',
+        label: 'Number of missing posts',
+        type: 'integer',
+        validation: {
+          step: 1
+        }
+      }, {
+        id: 'CAST(followersCount as INTEGER)',
+        label: 'Number of followers',
+        type: 'integer',
+        validation: {
+          min: 0,
+          step: 1
+        }
+      }, {
+        id: 'account_annotation.category_id',
+        label: 'Account Category',
+        type: 'integer',
+        input: 'select',
+        multiple: true,
+        values: account_category,
+        operators: ['equal', 'not_equal', 'in', 'not_in', 'is_null', 'is_not_null']
+      }, {
+        id: 'account_annotation.label_id',
+        label: 'Account Sub-category',
+        type: 'integer',
+        input: 'select',
+        multiple: true,
+        values: account_label,
+        operators: ['equal', 'not_equal', 'in', 'not_in', 'is_null', 'is_not_null']
+      }],
+    });
+
+    $('#btn-reset').on('click', function () {
+      $('#builder-basic').queryBuilder('reset');
+    });
+
+    $('#btn-get-sql').on('click', async function () {
+      var result = $('#builder-basic').queryBuilder('getSQL', false);
+      let subCorpus = document.getElementById('sub-corpus').checked;
+
+      if (result.sql.length) {
+        try {
+          const response = await axios.post('/api/export/excel/account', {
+              where: result.sql,
+              subCorpus: subCorpus
+          });
+          alert(response.data);
+  
+        } catch (error) {
+          console.error(error);
+        }
+        //alert(result.sql);
+      }
+    });
+  }
+
+  async function getCategory(category_type) {
+    
+    let categoriesList;
+
+    try {
+      const response = await axios.get(`/api/categories/${category_type}`);
+      categoriesList = response.data;
+      console.log(categoriesList);
+
+    } catch (error) {
+      console.error(error);
+    }
+
+    let category = {};
+    let label = {};
+
+    for (let i = 0; i < categoriesList.length; i++) {
+      category[categoriesList[i][1]] = categoriesList[i][0];
+      label[categoriesList[i][3]] = `${categoriesList[i][0]} - ${categoriesList[i][2]}`;
+    }
+    console.log(category);
+    console.log(label);
+
+    return { category, label };
+  }
+</script>
+</html>

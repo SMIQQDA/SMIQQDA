@@ -82,6 +82,7 @@ def postExportExcelPost():
     # print(sql)
 
     df = pd.read_sql_query(sql, db_conn, parse_dates={'timestamp_': {'format': '%Y-%m-%d %H:%M:%S'}, 'timestampApify': {'errors': 'ignore'}})
+    df.drop(columns=['id', 'post_id', 'account_id', 'category_id', 'label_id' ], inplace=True, errors='ignore')
 
     if not df.empty:
         df.rename(columns={"type_": "type"}, inplace=True)
@@ -172,6 +173,7 @@ def postExportExcelAccount():
     # print(sql)
 
     df = pd.read_sql_query(sql, db_conn)
+    df.drop(columns=['id', 'account_id', 'category_id', 'label_id' ], inplace=True, errors='ignore')
 
     if not df.empty:
         # Add a column with the url of the account

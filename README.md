@@ -47,6 +47,8 @@ To export post, go to the url http://localhost:5000/export_post and select your 
 
 The database is stored in the file instance/flaskr.sqlite then you can copy this file somewhere to make a backup. Replace the file with your copy to restore the backup.
 
+For a detailed guide to the operation and features of SMIQQDA, please refer to the "Vademecum SMIQQDA” document included with the software (directory: Documentation).
+
 ## Licence
 
 To quote : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.

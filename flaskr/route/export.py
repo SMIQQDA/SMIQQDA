@@ -87,9 +87,9 @@ def postExportExcelPost():
     if not df.empty:
         df.rename(columns={"type_": "type"}, inplace=True)
 
-        df['timestamp_'] = df['timestamp_'].dt.tz_localize('UTC')
+        df['timestamp_'] = df['timestamp_'].dt.tz_localize('UTC', True)
         df['timestamp_'] = df['timestamp_'].dt.tz_convert('Europe/Brussels')
-        df['timestamp_'] = df['timestamp_'].dt.tz_localize(None)
+        df['timestamp_'] = df['timestamp_'].dt.tz_localize(None, True)
         df['timestampApify'] = df['timestamp_']
         df.drop(columns=['timestamp_'], inplace=True)
 
@@ -208,7 +208,7 @@ def postExportExcelAccount():
 def generateImgList(img_path_prefix, suffix, row):
     img_list = ''
     delimiter = ';'
-    formatted_date = row['timestampApify'].tz_localize('Europe/Brussels').tz_convert('UTC').strftime('%d-%m-%y_%H-%M-%S')
+    formatted_date = row['timestampApify'].tz_localize('Europe/Brussels', True).tz_convert('UTC').strftime('%d-%m-%y_%H-%M-%S')
     img_name = f'{row.account}_{formatted_date}'
 
     for i in range(1,row['numberImagesPost']+1):
@@ -220,7 +220,7 @@ def generateImgList(img_path_prefix, suffix, row):
     return img_list
 
 def countExistingImgPerPost(img_path_prefix,row):
-    formatted_date = row['timestampApify'].tz_localize('Europe/Brussels').tz_convert('UTC').strftime('%d-%m-%y_%H-%M-%S')
+    formatted_date = row['timestampApify'].tz_localize('Europe/Brussels', True).tz_convert('UTC').strftime('%d-%m-%y_%H-%M-%S')
     img_name = f'{row.account}_{formatted_date}'
     pattern = f'{img_path_prefix}{row.account}\{img_name}_*'
     # print(pattern)

@@ -175,7 +175,7 @@ def import_txm_post_in_db():
     db.backup_db()
     db_conn = db.get_db()
 
-    PATH_TXM = 'flaskr/import/txm/post/Essai-annotation-TXM-500-posts.xml'
+    PATH_TXM = 'flaskr/import/txm/post/TXMPost.xml'
 
     tree = ET.parse(PATH_TXM)
     root = tree.getroot()
@@ -213,7 +213,7 @@ def import_txm_post_in_db():
                 # Précaution au cas où le xml aurait changé par rapport à quand ce code a été écrit
                 print('Error in parsing, the xml tags are not in the expected order')
 
-    category_and_sub = db_utils.fill_category_and_sub_with_id(db_conn, category_and_sub)
+    category_and_sub = db_utils.fill_category_and_sub_with_id(db_conn, category_and_sub, 'post')
 
     print('All : ', category_and_sub)
     index = 1
@@ -230,7 +230,7 @@ def import_txm_account_in_db():
     db.backup_db()
     db_conn = db.get_db()
 
-    PATH_TXM = 'flaskr/import/txm/account/Corpus-bios-annotées-féminisme-et-queer-1-cat.xml'
+    PATH_TXM = 'flaskr/import/txm/account/TXMAccount.xml'
 
     tree = ET.parse(PATH_TXM)
     root = tree.getroot()
@@ -270,7 +270,7 @@ def import_txm_account_in_db():
 
     # print('Post list',post_list)
 
-    category_and_sub = db_utils.fill_category_and_sub_with_id(db_conn, category_and_sub)
+    category_and_sub = db_utils.fill_category_and_sub_with_id(db_conn, category_and_sub, 'account')
 
     print('All : ', category_and_sub)
     index = 1

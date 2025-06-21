@@ -1,6 +1,5 @@
 .DS_Store
 flaskr/images/
-flaskr/static/insta
 *.pdf
 *.docx
 *.xlsx

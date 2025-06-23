@@ -60,7 +60,7 @@ C:.
 │   └───ExampleCorporaImages
 │       ├───comptes [4 subfolders filled with images : ellen.johnson.sirleaf, lindiwesisulusa, phumzilemlambongcuka, rebeccakadagaug]
 │       └───profilepictures [filled with the 4 matching profile pictures]
-└───insta-picky-main
+└───src
     ├───flaskr
     │   ├───__init__.py
     │   ├───schema.sql

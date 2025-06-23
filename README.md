@@ -40,7 +40,7 @@ The manual analysis of image-based social media posts has gained growing scholar
 
 3. THE FILES YOU SHOULD GET
 ---------------------------
-
+<pre>
 C:.
 ├───.gigignore [if downloaded on Github]
 ├───Licence.txt
@@ -81,7 +81,7 @@ C:.
     │   │   │   │   └───.gitkeep
     │   │   │   └───post
     │   │   │       └───.gitkeep
-    │   │   └───img
+    │   │   └───img [created during export, if needed]
     │   ├───import
     │   │   ├───excel
     │   │   │   ├───account
@@ -142,6 +142,7 @@ C:.
     │       └───__init__.cpython-312.pyc
     └───instance
         └───.gitkeep
+</pre>
 
 4. GETTING STARTED
 ------------------

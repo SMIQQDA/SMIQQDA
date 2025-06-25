@@ -57,6 +57,7 @@ C:.
 │   ├───ExamplePostCorpus.xlsx
 │   ├───ExampleAccountCorpus.xlsx
 │   ├───ExamplePostCorpus.xml
+│   ├───ExampleProfileCorpus.xml
 │   └───ExampleCorporaImages
 │       ├───comptes [4 subfolders filled with images : ellen.johnson.sirleaf, lindiwesisulusa, phumzilemlambongcuka, rebeccakadagaug]
 │       └───profilepictures [filled with the 4 matching profile pictures]

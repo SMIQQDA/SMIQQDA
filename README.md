@@ -43,8 +43,8 @@ The manual analysis of image-based social media posts has gained growing scholar
 <pre>
 C:.
 ├───.gigignore [if downloaded on Github]
-├───Licence.txt
-├───Readme.md
+├───LICENSE
+├───README.md
 ├───Documentation
 │   ├───SMIQQDA_Research software management plan_Presoft Project.docx
 │   ├───Vademecum SMIQQDA_FR.docx

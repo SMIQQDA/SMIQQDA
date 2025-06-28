@@ -37,7 +37,7 @@ def import_excel_post_in_db():
     
     # Localize timestamp
     # print("After datetime", df['timestampApify'])
-    df['timestampApify'] = df['timestampApify'].dt.tz_localize('Europe/Brussels', 'NaT').dt.tz_convert('UTC')
+    df['timestampApify'] = df['timestampApify'].dt.tz_localize('Europe/Brussels', True).dt.tz_convert('UTC')
 
     # Keep only the posts for which an account exists in the database
     account_df = pd.read_sql('SELECT account, postsAsked FROM account', db_conn)
@@ -143,7 +143,7 @@ def import_excel_ocr_in_db():
     post_df = pd.read_sql("SELECT " + cleaned_columns +", coalesce(datetime(post.timestampApify,'unixepoch'), datetime(post.timestampApify)) AS timestampApify FROM post", db_conn, parse_dates={'timestampApify': {'format': '%Y-%m-%d %H:%M:%S'}})
     
     # post_df['timestampApify'] = post_df['timestampApify'].apply(str)
-    post_df['timestampApify'] = post_df['timestampApify'].dt.tz_localize('UTC')
+    post_df['timestampApify'] = post_df['timestampApify'].dt.tz_localize('UTC', True)
     #for _, row in post_df.iterrows():
     #    print(row)
 
@@ -157,7 +157,7 @@ def import_excel_ocr_in_db():
     
     # Localize timestamp
     # print("After datetime", df['timestampApify'])
-    df['timestampApify'] = df['timestampApify'].dt.tz_localize('UTC')
+    df['timestampApify'] = df['timestampApify'].dt.tz_localize('UTC', True)
 
     # print('post_df : ', post_df['timestampApify'].to_string())
     # print('All : ', df['timestampApify'].to_string())

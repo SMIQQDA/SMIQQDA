@@ -192,7 +192,7 @@ def import_txm_post_in_db():
     for post in posts:
         # print('debug : ', post)
         if post.tag == (default_namespace + 'post'):
-            post_id = post.attrib['number']
+            post_id = post.attrib['postid']
             # print('post :', post_id)
             caption = post[1]
             if caption.tag == (default_namespace + 'caption'):
@@ -247,11 +247,11 @@ def import_txm_account_in_db():
     for post in posts:
         # print('debug : ', post)
         if post.tag == (default_namespace + 'post'):
-            accound_id = post.attrib['number']
+            accound_id = post.attrib['idaccount']
             # print('post :', post_id)
-            usernametxt = post[1]
-            if usernametxt.tag == (default_namespace + 'usernametxt'):
-                p = usernametxt[0]
+            biography = post[1]
+            if biography.tag == (default_namespace + 'biography'):
+                p = biography[0]
                 # print('p :', p.tag, p.attrib)
                 for child_p in p:
                     if child_p.tag.startswith(txm_namespace):

@@ -235,6 +235,10 @@ def copyImgListToExportFolder(img_list, destination_folder):
     img_list_splitted = img_list.split(delimiter)
 
     for img in img_list_splitted:
+
+        if not img:
+            continue
+
         img_name = img.split('\static\insta\\')[-1]
 
         img_dest = f'flaskr\export\img\{destination_folder}\{img_name}'

@@ -107,13 +107,13 @@ def postExportExcelPost():
 
         # Add a colum with the list of images that should be exist
         img_path_prefix = f'{os.getcwd()}\\flaskr\static\insta\comptes\\'
+        df['imagesReallyCollected'] = df.apply(lambda x: countExistingImgPerPost(img_path_prefix, x), axis=1)
+
         suffix = '.jpg'
         df['imagesLocalPath'] = df.apply(lambda x: generateImgList(img_path_prefix, suffix, x), axis=1)
 
         if sub_corpus:
             df['imagesLocalPath'].apply(lambda x: copyImgListToExportFolder(x, f'posts_{now}'))
-
-        df['imagesReallyCollected'] = df.apply(lambda x: countExistingImgPerPost(img_path_prefix, x), axis=1)
 
         df['imagesMissing'] = df['numberImagesPost'] - df['imagesReallyCollected']
         
@@ -220,10 +220,10 @@ def generateImgList(img_path_prefix, suffix, row):
     formatted_date = row['timestampApify'].tz_localize('Europe/Brussels', True).tz_convert('UTC').strftime('%d-%m-%y_%H-%M-%S')
     img_name = f'{row.account}_{formatted_date}'
 
-    for i in range(1,row['numberImagesPost']+1):
+    for i in range(1,row['imagesReallyCollected']+1):
         # Don't use [] because we are in an f string
-        img_list = f'{img_list}{img_path_prefix}{row.account}\{img_name}_{i}_{row.numberImagesPost}{suffix}'
-        if i < row['numberImagesPost']:
+        img_list = f'{img_list}{img_path_prefix}{row.account}\{img_name}_{i}_{row.imagesReallyCollected}{suffix}'
+        if i < row['imagesReallyCollected']:
             img_list = f'{img_list}{delimiter}'
 
     return img_list
@@ -251,7 +251,7 @@ def copyImgListToExportFolder(img_list, destination_folder):
         img_name = img.split('\static\insta\\')[-1]
 
         img_dest = f'flaskr\export\img\{destination_folder}\{img_name}'
-        print(f'Copying {img} to {img_dest}')
+        # print(f'Copying {img} to {img_dest}')
         # xcopy will create the folder if it doesn't exist
         os.system(f'echo F|xcopy "{img}" "{img_dest}" /c')
 

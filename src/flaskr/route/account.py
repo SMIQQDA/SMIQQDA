@@ -33,7 +33,7 @@ def getAccountList():
     else:
         if(len(post_annotation_id_list) > 0 or len(account_annotation_id_list) > 0):
 
-            sql="SELECT DISTINCT(account) FROM post JOIN annotation ON annotation.post_id = post.postId "
+            sql="SELECT DISTINCT(account) FROM post LEFT JOIN annotation ON annotation.post_id = post.postId "
             
             if(len(account_annotation_id_list) > 0):
                 sql = sql + "JOIN account_annotation ON account_annotation.account_id = post.idAccount"

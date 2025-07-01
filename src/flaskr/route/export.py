@@ -22,6 +22,8 @@ def postExportExcelPost():
     where = request.json["where"]
     sub_corpus = request.json["subCorpus"]
 
+    print("Exporting posts to Excel...")
+
     db_conn = db.get_db()
 
     post_categories = db_conn.execute(
@@ -126,8 +128,11 @@ def postExportExcelPost():
 
         # print(df)
 
+        print("Data exported to Excel successfully.")
+
         return "Data exported"
     else:
+        print("No data to export.")
         return "No data to export"
 
 def postExportExcelAccount():
@@ -137,6 +142,8 @@ def postExportExcelAccount():
 
     where = request.json["where"]
     sub_corpus = request.json["subCorpus"]
+
+    print("Exporting accounts to Excel...")
 
     db_conn = db.get_db()
 
@@ -201,8 +208,10 @@ def postExportExcelAccount():
 
         # print(df)
 
+        print("Data exported to Excel successfully.")
         return "Data exported"
     else:
+        print("No data to export.")
         return "No data to export"
 
 def generateImgList(img_path_prefix, suffix, row):
@@ -242,6 +251,7 @@ def copyImgListToExportFolder(img_list, destination_folder):
         img_name = img.split('\static\insta\\')[-1]
 
         img_dest = f'flaskr\export\img\{destination_folder}\{img_name}'
+        print(f'Copying {img} to {img_dest}')
         # xcopy will create the folder if it doesn't exist
         os.system(f'echo F|xcopy "{img}" "{img_dest}" /c')
 

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:txm="http://textometrie.org/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0"><teiHeader><fileDesc><titleStmt><title></title></titleStmt><publicationStmt></publicationStmt><sourceDesc></sourceDesc></fileDesc><encodingDesc><appInfo><txm:application ident="TreeTagger" version="3.2" resp="txm">
+<txm:commandLine>  <txm:os name="Windows 11" arch="x86"></txm:os>  <txm:osSeparator file="&amp;#92;" path="&amp;#59;" line="&amp;#x0D;"></txm:osSeparator>  <txm:program name="tree-tagger" path="~/TXM/treetagger/bin" desc="TreeTagger is the name of the project TreeTagger" version="3.2"></txm:program>  <txm:args>    <txm:arg name="token" type="none"></txm:arg>    <txm:arg name="lemma" type="none"></txm:arg>    <txm:arg name="sgml" type="none"></txm:arg>    <txm:arg name="no-unknown" type="none"></txm:arg>    <txm:arg name="eos-tag" type="String">&amp;lt;s&gt;</txm:arg>    <txm:arg name="model" type="String">C:\Users\jtiago\TXM-0.8.4\treetagger-models\fr.par</txm:arg>    <txm:arg name="input" type="String">C:\Users\jtiago\TXM-0.8.4\corpora\PROFILECORPORA\ptreetagger\accounts.xml-src.tt</txm:arg>    <txm:arg name="output" type="String">C:\Users\jtiago\TXM-0.8.4\corpora\PROFILECORPORA\treetagger\accounts.xml-out.tt</txm:arg>  </txm:args></txm:commandLine>
+<ab type="annotation">
+<list>
+<item><ref type="tagset" target="#frpos"></ref></item>
+<item><ref type="tagset" target="#frlemma"></ref></item>
+</list></ab></txm:application></appInfo><classDecl><taxonomy id="frpos"><bibl><title>pos tagset built from model C:\Users\jtiago\TXM-0.8.4\treetagger-models\fr.par</title></bibl>
+</taxonomy>
+<taxonomy id="frlemma"><bibl><title>fr lemma of the model C:\Users\jtiago\TXM-0.8.4\treetagger-models\fr.par - </title></bibl>
+</taxonomy>
+</classDecl></encodingDesc></teiHeader><text id="accounts"><collecte>
+<pb n="1">
+</pb>
+<post idaccount="7124153669" account="ellen.johnson.sirleaf" fullname="Ellen Johnson Sirleaf">
+<metadata>
+<list type="unordered">
+
+<item>
+idaccount : 7124153669</item>
+
+<item>
+account : ellen.johnson.sirleaf</item>
+
+<item>
+fullName : Ellen Johnson Sirleaf</item>
+
+    </list>
+</metadata>
+<biography>
+<p>
+<head>
+<hi>
+
+<w id="w_accounts_1"><txm:form>biography</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">biography</txm:ana><txm:ana resp="#src" type="#n">1</txm:ana></w>
+
+<w id="w_accounts_2"><txm:form>:</txm:form><txm:ana resp="#txm" type="#frpos">PUN</txm:ana><txm:ana resp="#txm" type="#frlemma">:</txm:ana><txm:ana resp="#src" type="#n">2</txm:ana></w>
+</hi>
+</head>
+
+<w id="w_accounts_3"><txm:form>79</txm:form><txm:ana resp="#txm" type="#frpos">NUM</txm:ana><txm:ana resp="#txm" type="#frlemma">@card@</txm:ana><txm:ana resp="#src" type="#n">3</txm:ana></w>
+
+<w id="w_accounts_4"><txm:form>years</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">years</txm:ana><txm:ana resp="#src" type="#n">4</txm:ana></w>
+
+<w id="w_accounts_5"><txm:form>young</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">young</txm:ana><txm:ana resp="#src" type="#n">5</txm:ana></w>
+
+<w id="w_accounts_6"><txm:form>.</txm:form><txm:ana resp="#txm" type="#frpos">SENT</txm:ana><txm:ana resp="#txm" type="#frlemma">.</txm:ana><txm:ana resp="#src" type="#n">6</txm:ana></w>
+
+<w id="w_accounts_7"><txm:form>I</txm:form><txm:ana resp="#txm" type="#frpos">NUM</txm:ana><txm:ana resp="#txm" type="#frlemma">I</txm:ana><txm:ana resp="#src" type="#n">7</txm:ana></w>
+
+<w id="w_accounts_8"><txm:form>live</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">live</txm:ana><txm:ana resp="#src" type="#n">8</txm:ana></w>
+
+<w id="w_accounts_9"><txm:form>in</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">in</txm:ana><txm:ana resp="#src" type="#n">9</txm:ana></w>
+
+<w id="w_accounts_10"><txm:form>Liberia</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Liberia</txm:ana><txm:ana resp="#src" type="#n">10</txm:ana></w>
+
+<w id="w_accounts_11"><txm:form>Africa</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Africa</txm:ana><txm:ana resp="#src" type="#n">11</txm:ana></w>
+
+<w id="w_accounts_12"><txm:form>I</txm:form><txm:ana resp="#txm" type="#frpos">NUM</txm:ana><txm:ana resp="#txm" type="#frlemma">I</txm:ana><txm:ana resp="#src" type="#n">12</txm:ana></w>
+
+<w id="w_accounts_13"><txm:form>also</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">also</txm:ana><txm:ana resp="#src" type="#n">13</txm:ana></w>
+
+<w id="w_accounts_14"><txm:form>grew</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">grew</txm:ana><txm:ana resp="#src" type="#n">14</txm:ana></w>
+
+<w id="w_accounts_15"><txm:form>up</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">up</txm:ana><txm:ana resp="#src" type="#n">15</txm:ana></w>
+
+<w id="w_accounts_16"><txm:form>there</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">there</txm:ana><txm:ana resp="#src" type="#n">16</txm:ana></w>
+
+<w id="w_accounts_17"><txm:form>❤</txm:form><txm:ana resp="#txm" type="#frpos">ABR</txm:ana><txm:ana resp="#txm" type="#frlemma">❤</txm:ana><txm:ana resp="#src" type="#n">17</txm:ana></w>
+
+<w id="w_accounts_18"><txm:form>️</txm:form><txm:ana resp="#txm" type="#frpos">ABR</txm:ana><txm:ana resp="#txm" type="#frlemma">️</txm:ana><txm:ana resp="#src" type="#n">18</txm:ana></w>
+</p>
+</biography>
+</post>
+<pb n="2">
+</pb>
+<post idaccount="7815708094" account="phumzilemlambongcuka" fullname="Phumzile Mlambo-Ngcuka">
+<metadata>
+<list type="unordered">
+
+<item>
+idaccount : 7815708094</item>
+
+<item>
+account : phumzilemlambongcuka</item>
+
+<item>
+fullName : Phumzile Mlambo-Ngcuka</item>
+
+    </list>
+</metadata>
+<biography>
+<p>
+<head>
+<hi>
+
+<w id="w_accounts_19"><txm:form>biography</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">biography</txm:ana><txm:ana resp="#src" type="#n">19</txm:ana></w>
+
+<w id="w_accounts_20"><txm:form>:</txm:form><txm:ana resp="#txm" type="#frpos">PUN</txm:ana><txm:ana resp="#txm" type="#frlemma">:</txm:ana><txm:ana resp="#src" type="#n">20</txm:ana></w>
+</hi>
+</head>
+
+<w id="w_accounts_21"><txm:form>Former</txm:form><txm:ana resp="#txm" type="#frpos">VER:infi</txm:ana><txm:ana resp="#txm" type="#frlemma">former</txm:ana><txm:ana resp="#src" type="#n">21</txm:ana></w>
+
+<w id="w_accounts_22"><txm:form>Executive</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">Executive</txm:ana><txm:ana resp="#src" type="#n">22</txm:ana></w>
+
+<w id="w_accounts_23"><txm:form>Director</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Director</txm:ana><txm:ana resp="#src" type="#n">23</txm:ana></w>
+
+<w id="w_accounts_24"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">24</txm:ana></w>
+
+<w id="w_accounts_25"><txm:form>UN</txm:form><txm:ana resp="#txm" type="#frpos">DET:ART</txm:ana><txm:ana resp="#txm" type="#frlemma">un</txm:ana><txm:ana resp="#src" type="#n">25</txm:ana></w>
+
+<w id="w_accounts_26"><txm:form>Women</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Women</txm:ana><txm:ana resp="#src" type="#n">26</txm:ana></w>
+
+<w id="w_accounts_27"><txm:form>&amp;</txm:form><txm:ana resp="#txm" type="#frpos">SYM</txm:ana><txm:ana resp="#txm" type="#frlemma">&amp;</txm:ana><txm:ana resp="#src" type="#n">27</txm:ana></w>
+
+<w id="w_accounts_28"><txm:form>Deputy</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Deputy</txm:ana><txm:ana resp="#src" type="#n">28</txm:ana></w>
+
+<w id="w_accounts_29"><txm:form>President</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">President</txm:ana><txm:ana resp="#src" type="#n">29</txm:ana></w>
+
+<w id="w_accounts_30"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">VER:futu</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">30</txm:ana></w>
+
+<w id="w_accounts_31"><txm:form>SA</txm:form><txm:ana resp="#txm" type="#frpos">DET:POS</txm:ana><txm:ana resp="#txm" type="#frlemma">son</txm:ana><txm:ana resp="#src" type="#n">31</txm:ana></w>
+
+<w id="w_accounts_32"><txm:form>Founder</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">Founder</txm:ana><txm:ana resp="#src" type="#n">32</txm:ana></w>
+
+<w id="w_accounts_33"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">33</txm:ana></w>
+
+<w id="w_accounts_34"><txm:form>Umlambo</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Umlambo</txm:ana><txm:ana resp="#src" type="#n">34</txm:ana></w>
+
+<w id="w_accounts_35"><txm:form>Foundation</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Foundation</txm:ana><txm:ana resp="#src" type="#n">35</txm:ana></w>
+
+<w id="w_accounts_36"><txm:form>Gender</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Gender</txm:ana><txm:ana resp="#src" type="#n">36</txm:ana></w>
+
+<w id="w_accounts_37"><txm:form>Activist</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Activist</txm:ana><txm:ana resp="#src" type="#n">37</txm:ana></w>
+</p>
+</biography>
+</post>
+<pb n="3">
+</pb>
+<post idaccount="5489598983" account="lindiwesisulusa" fullname="Lindiwe Sisulu">
+<metadata>
+<list type="unordered">
+
+<item>
+idaccount : 5489598983</item>
+
+<item>
+account : lindiwesisulusa</item>
+
+<item>
+fullName : Lindiwe Sisulu</item>
+
+    </list>
+</metadata>
+<biography>
+<p>
+<head>
+<hi>
+
+<w id="w_accounts_38"><txm:form>biography</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">biography</txm:ana><txm:ana resp="#src" type="#n">38</txm:ana></w>
+
+<w id="w_accounts_39"><txm:form>:</txm:form><txm:ana resp="#txm" type="#frpos">PUN</txm:ana><txm:ana resp="#txm" type="#frlemma">:</txm:ana><txm:ana resp="#src" type="#n">39</txm:ana></w>
+</hi>
+</head>
+
+<w id="w_accounts_40"><txm:form>@</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">@</txm:ana><txm:ana resp="#src" type="#n">40</txm:ana></w>
+
+<w id="w_accounts_41"><txm:form>MYANC</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">MYANC</txm:ana><txm:ana resp="#src" type="#n">41</txm:ana></w>
+
+<w id="w_accounts_42"><txm:form>NEC</txm:form><txm:ana resp="#txm" type="#frpos">ABR</txm:ana><txm:ana resp="#txm" type="#frlemma">NEC</txm:ana><txm:ana resp="#src" type="#n">42</txm:ana></w>
+</p>
+</biography>
+</post>
+<pb n="4">
+</pb>
+<post idaccount="31064836943" account="rebeccakadagaug" fullname="Rebecca Alitwala Kadaga">
+<metadata>
+<list type="unordered">
+
+<item>
+idaccount : 31064836943</item>
+
+<item>
+account : rebeccakadagaug</item>
+
+<item>
+fullName : Rebecca Alitwala Kadaga</item>
+
+    </list>
+</metadata>
+<biography>
+<p>
+<head>
+<hi>
+
+<w id="w_accounts_43"><txm:form>biography</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">biography</txm:ana><txm:ana resp="#src" type="#n">43</txm:ana></w>
+
+<w id="w_accounts_44"><txm:form>:</txm:form><txm:ana resp="#txm" type="#frpos">PUN</txm:ana><txm:ana resp="#txm" type="#frlemma">:</txm:ana><txm:ana resp="#src" type="#n">44</txm:ana></w>
+</hi>
+</head>
+
+<w id="w_accounts_45"><txm:form>1st</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">1st</txm:ana><txm:ana resp="#src" type="#n">45</txm:ana></w>
+
+<w id="w_accounts_46"><txm:form>Deputy</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Deputy</txm:ana><txm:ana resp="#src" type="#n">46</txm:ana></w>
+
+<w id="w_accounts_47"><txm:form>Prime</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">prime</txm:ana><txm:ana resp="#src" type="#n">47</txm:ana></w>
+
+<txm:annotationtxmprofile author="jtiago" ref="minister" date="2025-06-25" start="47" end="47"><w id="w_accounts_48"><txm:form>Minister</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">Minister</txm:ana><txm:ana resp="#src" type="#n">48</txm:ana></w></txm:annotationtxmprofile>
+
+<w id="w_accounts_49"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">49</txm:ana></w>
+
+<w id="w_accounts_50"><txm:form>Uganda</txm:form><txm:ana resp="#txm" type="#frpos">VER:simp</txm:ana><txm:ana resp="#txm" type="#frlemma">Uganda</txm:ana><txm:ana resp="#src" type="#n">50</txm:ana></w>
+
+<w id="w_accounts_51"><txm:form>and</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">and</txm:ana><txm:ana resp="#src" type="#n">51</txm:ana></w>
+
+<txm:annotationtxmprofile author="jtiago" ref="minister" date="2025-06-25" start="51" end="51"><w id="w_accounts_52"><txm:form>Minister</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">Minister</txm:ana><txm:ana resp="#src" type="#n">52</txm:ana></w></txm:annotationtxmprofile>
+
+<w id="w_accounts_53"><txm:form>for</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">for</txm:ana><txm:ana resp="#src" type="#n">53</txm:ana></w>
+
+<w id="w_accounts_54"><txm:form>East</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">East</txm:ana><txm:ana resp="#src" type="#n">54</txm:ana></w>
+
+<w id="w_accounts_55"><txm:form>African</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">African</txm:ana><txm:ana resp="#src" type="#n">55</txm:ana></w>
+
+<w id="w_accounts_56"><txm:form>Community</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Community</txm:ana><txm:ana resp="#src" type="#n">56</txm:ana></w>
+
+<w id="w_accounts_57"><txm:form>Affairs</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Affairs</txm:ana><txm:ana resp="#src" type="#n">57</txm:ana></w>
+
+<w id="w_accounts_58"><txm:form>.</txm:form><txm:ana resp="#txm" type="#frpos">SENT</txm:ana><txm:ana resp="#txm" type="#frlemma">.</txm:ana><txm:ana resp="#src" type="#n">58</txm:ana></w>
+
+<w id="w_accounts_59"><txm:form>Speaker</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">speaker</txm:ana><txm:ana resp="#src" type="#n">59</txm:ana></w>
+
+<w id="w_accounts_60"><txm:form>Emeritus</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">Emeritus</txm:ana><txm:ana resp="#src" type="#n">60</txm:ana></w>
+
+<w id="w_accounts_61"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">61</txm:ana></w>
+
+<w id="w_accounts_62"><txm:form>the</txm:form><txm:ana resp="#txm" type="#frpos">NOM</txm:ana><txm:ana resp="#txm" type="#frlemma">the</txm:ana><txm:ana resp="#src" type="#n">62</txm:ana></w>
+
+<w id="w_accounts_63"><txm:form>9th</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">9th</txm:ana><txm:ana resp="#src" type="#n">63</txm:ana></w>
+
+<w id="w_accounts_64"><txm:form>and</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">and</txm:ana><txm:ana resp="#src" type="#n">64</txm:ana></w>
+
+<w id="w_accounts_65"><txm:form>10th</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">10th</txm:ana><txm:ana resp="#src" type="#n">65</txm:ana></w>
+
+<w id="w_accounts_66"><txm:form>Parliament</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Parliament</txm:ana><txm:ana resp="#src" type="#n">66</txm:ana></w>
+
+<w id="w_accounts_67"><txm:form>of</txm:form><txm:ana resp="#txm" type="#frpos">ADJ</txm:ana><txm:ana resp="#txm" type="#frlemma">of</txm:ana><txm:ana resp="#src" type="#n">67</txm:ana></w>
+
+<w id="w_accounts_68"><txm:form>Uganda</txm:form><txm:ana resp="#txm" type="#frpos">NAM</txm:ana><txm:ana resp="#txm" type="#frlemma">Uganda</txm:ana><txm:ana resp="#src" type="#n">68</txm:ana></w>
+
+<w id="w_accounts_69"><txm:form>.</txm:form><txm:ana resp="#txm" type="#frpos">SENT</txm:ana><txm:ana resp="#txm" type="#frlemma">.</txm:ana><txm:ana resp="#src" type="#n">69</txm:ana></w>
+</p>
+</biography>
+</post>
+</collecte></text></TEI>

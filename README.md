@@ -16,8 +16,8 @@ Version: SMIQQDA 1.0
 
 Download	https://doi.org/10.5281/zenodo.15642544 / https://github.com/SMIQQDA/SMIQQDA.git
 
-To quote the software : Tiago Joseph, Michaël Stappers, Gent University. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
-Copyright (c) 2025, Tiago Joseph (Gent University), Michaël Stappers (independent programmer), and Gent University.
+To quote the software : Tiago Joseph and Michaël Stappers. 2025. SMIQQDA, Social Media Interface for Quantitative and Qualitative Data Analysis. Version 1.0. Zenodo, https://doi.org/10.5281/zenodo.15642544.
+Copyright (c) 2025, Tiago Joseph (Gent University) and Michaël Stappers (independent programmer).
 
 -------------------------------------------------------------------------------
 0. SECURITY WARNING
@@ -220,7 +220,7 @@ Not applicable.
 6. OPEN SOURCE LICENCE - GNU General Public License LICENCE [version 3 or any later version]
 ----------------------------------------------------------------
 
-Copyright (c) 2025, Tiago Joseph (Gent University), Michaël Stappers (independent programmer), and Gent University.
+Copyright (c) 2025, Tiago Joseph (Gent University) and Michaël Stappers (independent programmer).
 
 GNU General Public License LICENCE [version 3 or any later version]. The full text of the license is available at the following address: https://www.gnu.org/licenses/gpl-3.0.html
 
